@@ -1,5 +1,6 @@
 {
   "name": "battleofdragonsdatabase",
+  "type": "module",
   "scripts": {
     "build": "prisma db push && prisma generate"
   },
