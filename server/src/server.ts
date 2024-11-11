@@ -2,11 +2,15 @@ import Fastify, { FastifyReply, FastifyRequest } from "fastify";
 import cors from "@fastify/cors";
 import { PORT } from "./config.js";
 
-import { PrismaClient } from "../../database/prisma/client/index.js";
-import { getAllDragons } from "./data/dragons.js";
+import { getDragonList } from "./data/dragonData.js";
+import { PrismaClient } from "./database.js";
+import { trySeedDragons } from "./logic/seedLogic.js";
 
 // Prisma initialized 'once' to ensure single db connection
 const prisma = new PrismaClient();
+
+// Try seed database
+trySeedDragons(prisma);
 
 // Initialize server
 const fastify = Fastify({
@@ -23,7 +27,7 @@ await fastify.register(cors, {});
 fastify.get(
   "/allDragons",
   async (request: FastifyRequest, reply: FastifyReply) => {
-    const allDragons = await getAllDragons(prisma);
+    const allDragons = await getDragonList(prisma);
     reply.send(allDragons);
   }
 );

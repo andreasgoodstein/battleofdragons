@@ -121,6 +121,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.BattleScalarFieldEnum = {
   id: 'id',
+  timestamp: 'timestamp',
   winnerId: 'winnerId',
   winnerHealth: 'winnerHealth'
 };

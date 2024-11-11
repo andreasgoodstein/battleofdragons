@@ -985,18 +985,21 @@ export namespace Prisma {
 
   export type BattleMinAggregateOutputType = {
     id: number | null
+    timestamp: Date | null
     winnerId: number | null
     winnerHealth: number | null
   }
 
   export type BattleMaxAggregateOutputType = {
     id: number | null
+    timestamp: Date | null
     winnerId: number | null
     winnerHealth: number | null
   }
 
   export type BattleCountAggregateOutputType = {
     id: number
+    timestamp: number
     winnerId: number
     winnerHealth: number
     _all: number
@@ -1017,18 +1020,21 @@ export namespace Prisma {
 
   export type BattleMinAggregateInputType = {
     id?: true
+    timestamp?: true
     winnerId?: true
     winnerHealth?: true
   }
 
   export type BattleMaxAggregateInputType = {
     id?: true
+    timestamp?: true
     winnerId?: true
     winnerHealth?: true
   }
 
   export type BattleCountAggregateInputType = {
     id?: true
+    timestamp?: true
     winnerId?: true
     winnerHealth?: true
     _all?: true
@@ -1122,6 +1128,7 @@ export namespace Prisma {
 
   export type BattleGroupByOutputType = {
     id: number
+    timestamp: Date
     winnerId: number | null
     winnerHealth: number | null
     _count: BattleCountAggregateOutputType | null
@@ -1147,6 +1154,7 @@ export namespace Prisma {
 
   export type BattleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    timestamp?: boolean
     winnerId?: boolean
     winnerHealth?: boolean
     dragons?: boolean | Battle$dragonsArgs<ExtArgs>
@@ -1155,12 +1163,14 @@ export namespace Prisma {
 
   export type BattleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    timestamp?: boolean
     winnerId?: boolean
     winnerHealth?: boolean
   }, ExtArgs["result"]["battle"]>
 
   export type BattleSelectScalar = {
     id?: boolean
+    timestamp?: boolean
     winnerId?: boolean
     winnerHealth?: boolean
   }
@@ -1178,6 +1188,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      timestamp: Date
       winnerId: number | null
       winnerHealth: number | null
     }, ExtArgs["result"]["battle"]>
@@ -1575,6 +1586,7 @@ export namespace Prisma {
    */ 
   interface BattleFieldRefs {
     readonly id: FieldRef<"Battle", 'Int'>
+    readonly timestamp: FieldRef<"Battle", 'DateTime'>
     readonly winnerId: FieldRef<"Battle", 'Int'>
     readonly winnerHealth: FieldRef<"Battle", 'Int'>
   }
@@ -1771,7 +1783,7 @@ export namespace Prisma {
     /**
      * The data needed to create a Battle.
      */
-    data?: XOR<BattleCreateInput, BattleUncheckedCreateInput>
+    data: XOR<BattleCreateInput, BattleUncheckedCreateInput>
   }
 
   /**
@@ -2912,6 +2924,7 @@ export namespace Prisma {
 
   export const BattleScalarFieldEnum: {
     id: 'id',
+    timestamp: 'timestamp',
     winnerId: 'winnerId',
     winnerHealth: 'winnerHealth'
   };
@@ -2958,6 +2971,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -2979,6 +2999,7 @@ export namespace Prisma {
     OR?: BattleWhereInput[]
     NOT?: BattleWhereInput | BattleWhereInput[]
     id?: IntFilter<"Battle"> | number
+    timestamp?: DateTimeFilter<"Battle"> | Date | string
     winnerId?: IntNullableFilter<"Battle"> | number | null
     winnerHealth?: IntNullableFilter<"Battle"> | number | null
     dragons?: DragonListRelationFilter
@@ -2986,6 +3007,7 @@ export namespace Prisma {
 
   export type BattleOrderByWithRelationInput = {
     id?: SortOrder
+    timestamp?: SortOrder
     winnerId?: SortOrderInput | SortOrder
     winnerHealth?: SortOrderInput | SortOrder
     dragons?: DragonOrderByRelationAggregateInput
@@ -2996,6 +3018,7 @@ export namespace Prisma {
     AND?: BattleWhereInput | BattleWhereInput[]
     OR?: BattleWhereInput[]
     NOT?: BattleWhereInput | BattleWhereInput[]
+    timestamp?: DateTimeFilter<"Battle"> | Date | string
     winnerId?: IntNullableFilter<"Battle"> | number | null
     winnerHealth?: IntNullableFilter<"Battle"> | number | null
     dragons?: DragonListRelationFilter
@@ -3003,6 +3026,7 @@ export namespace Prisma {
 
   export type BattleOrderByWithAggregationInput = {
     id?: SortOrder
+    timestamp?: SortOrder
     winnerId?: SortOrderInput | SortOrder
     winnerHealth?: SortOrderInput | SortOrder
     _count?: BattleCountOrderByAggregateInput
@@ -3017,6 +3041,7 @@ export namespace Prisma {
     OR?: BattleScalarWhereWithAggregatesInput[]
     NOT?: BattleScalarWhereWithAggregatesInput | BattleScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Battle"> | number
+    timestamp?: DateTimeWithAggregatesFilter<"Battle"> | Date | string
     winnerId?: IntNullableWithAggregatesFilter<"Battle"> | number | null
     winnerHealth?: IntNullableWithAggregatesFilter<"Battle"> | number | null
   }
@@ -3074,6 +3099,7 @@ export namespace Prisma {
   }
 
   export type BattleCreateInput = {
+    timestamp: Date | string
     winnerId?: number | null
     winnerHealth?: number | null
     dragons?: DragonCreateNestedManyWithoutBattleInput
@@ -3081,12 +3107,14 @@ export namespace Prisma {
 
   export type BattleUncheckedCreateInput = {
     id?: number
+    timestamp: Date | string
     winnerId?: number | null
     winnerHealth?: number | null
     dragons?: DragonUncheckedCreateNestedManyWithoutBattleInput
   }
 
   export type BattleUpdateInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
     winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
     dragons?: DragonUpdateManyWithoutBattleNestedInput
@@ -3094,6 +3122,7 @@ export namespace Prisma {
 
   export type BattleUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
     winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
     dragons?: DragonUncheckedUpdateManyWithoutBattleNestedInput
@@ -3101,17 +3130,20 @@ export namespace Prisma {
 
   export type BattleCreateManyInput = {
     id?: number
+    timestamp: Date | string
     winnerId?: number | null
     winnerHealth?: number | null
   }
 
   export type BattleUpdateManyMutationInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
     winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type BattleUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
     winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -3172,6 +3204,17 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -3200,6 +3243,7 @@ export namespace Prisma {
 
   export type BattleCountOrderByAggregateInput = {
     id?: SortOrder
+    timestamp?: SortOrder
     winnerId?: SortOrder
     winnerHealth?: SortOrder
   }
@@ -3212,12 +3256,14 @@ export namespace Prisma {
 
   export type BattleMaxOrderByAggregateInput = {
     id?: SortOrder
+    timestamp?: SortOrder
     winnerId?: SortOrder
     winnerHealth?: SortOrder
   }
 
   export type BattleMinOrderByAggregateInput = {
     id?: SortOrder
+    timestamp?: SortOrder
     winnerId?: SortOrder
     winnerHealth?: SortOrder
   }
@@ -3242,6 +3288,20 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -3343,6 +3403,10 @@ export namespace Prisma {
     connect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -3418,6 +3482,17 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -3454,6 +3529,20 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -3561,12 +3650,14 @@ export namespace Prisma {
   }
 
   export type BattleCreateWithoutDragonsInput = {
+    timestamp: Date | string
     winnerId?: number | null
     winnerHealth?: number | null
   }
 
   export type BattleUncheckedCreateWithoutDragonsInput = {
     id?: number
+    timestamp: Date | string
     winnerId?: number | null
     winnerHealth?: number | null
   }
@@ -3588,12 +3679,14 @@ export namespace Prisma {
   }
 
   export type BattleUpdateWithoutDragonsInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
     winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type BattleUncheckedUpdateWithoutDragonsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
     winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
   }
