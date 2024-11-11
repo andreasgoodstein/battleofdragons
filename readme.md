@@ -14,6 +14,12 @@ To run the solution execute the following instructions in separate terminals
 
 The solution should now be available at `http://localhost:3000`
 
+## status
+
+I ran out of time after implementing the `startBattle` endpoint. However the full stack up until that points is working as intended.
+
+I also would have liked to add some tests, primarily around the battle logic. Probably using `jest` and `ts-jest`. And at the very end, some e2e testing using `playwright`.
+
 ## challenge requirements
 
 * user can **select** two (out of several) **dragons**
@@ -36,14 +42,18 @@ GET `allDragons` - returns all possible dragons
 
 POST `startBattle` - locks in dragon selection and starts battle
 
+// TODO: Not finished
 POST `cancelBattle` - discard battle session and unlock dragon selection
 
+// TODO: Not finished
 POST `fightRound` - calculate and subtract health from each dragon
 
 ### bonus endpoints
 
+// TODO: Not finished
 GET `getBattleHistory` - returns list of completed battles
 
+// TODO: Not finished
 GET `predictBattle` - calculates and returns battle outcome probability
 
 ## tech choices
@@ -61,5 +71,3 @@ fastify
 ### database
 
 sqlite, with prisma
-
-
