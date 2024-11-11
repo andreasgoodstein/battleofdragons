@@ -1,7 +1,7 @@
 import { Translate } from "../localization/en";
 
 type DragonsStatsProps = {
-  dragon: Dragon;
+  dragon?: Dragon;
   health?: number;
 };
 
@@ -10,20 +10,26 @@ type DragonsStatsProps = {
  *
  * @param health Optional parameter, only passed in battle
  */
-export const DragonsStats = ({ dragon, health }: DragonsStatsProps) => (
-  <article>
-    <h2>
-      {Translate.NAME}: {dragon.name}
-    </h2>
+export const DragonsStats = ({ dragon, health }: DragonsStatsProps) => {
+  if (!dragon) {
+    return null;
+  }
 
-    <p>
-      {Translate.STRENGTH}: {dragon.strength}
-    </p>
+  return (
+    <article>
+      <h3>
+        {Translate.NAME}: {dragon.name}
+      </h3>
 
-    {!!health && (
       <p>
-        {Translate.HEALTH}: {health}
+        {Translate.STRENGTH}: {dragon.strength}
       </p>
-    )}
-  </article>
-);
+
+      {!!health && (
+        <p>
+          {Translate.HEALTH}: {health}
+        </p>
+      )}
+    </article>
+  );
+};

@@ -925,33 +925,42 @@ export namespace Prisma {
 
 
   /**
-   * Count Type BattleCountOutputType
+   * Count Type DragonCountOutputType
    */
 
-  export type BattleCountOutputType = {
-    dragons: number
+  export type DragonCountOutputType = {
+    LeftBattle: number
+    RightBattle: number
   }
 
-  export type BattleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    dragons?: boolean | BattleCountOutputTypeCountDragonsArgs
+  export type DragonCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    LeftBattle?: boolean | DragonCountOutputTypeCountLeftBattleArgs
+    RightBattle?: boolean | DragonCountOutputTypeCountRightBattleArgs
   }
 
   // Custom InputTypes
   /**
-   * BattleCountOutputType without action
+   * DragonCountOutputType without action
    */
-  export type BattleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DragonCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BattleCountOutputType
+     * Select specific fields to fetch from the DragonCountOutputType
      */
-    select?: BattleCountOutputTypeSelect<ExtArgs> | null
+    select?: DragonCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * BattleCountOutputType without action
+   * DragonCountOutputType without action
    */
-  export type BattleCountOutputTypeCountDragonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DragonWhereInput
+  export type DragonCountOutputTypeCountLeftBattleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BattleWhereInput
+  }
+
+  /**
+   * DragonCountOutputType without action
+   */
+  export type DragonCountOutputTypeCountRightBattleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BattleWhereInput
   }
 
 
@@ -973,70 +982,100 @@ export namespace Prisma {
 
   export type BattleAvgAggregateOutputType = {
     id: number | null
+    leftDragonId: number | null
+    leftDragonHealth: number | null
+    rightDragonId: number | null
+    rightDragonHealth: number | null
     winnerId: number | null
-    winnerHealth: number | null
   }
 
   export type BattleSumAggregateOutputType = {
     id: number | null
+    leftDragonId: number | null
+    leftDragonHealth: number | null
+    rightDragonId: number | null
+    rightDragonHealth: number | null
     winnerId: number | null
-    winnerHealth: number | null
   }
 
   export type BattleMinAggregateOutputType = {
     id: number | null
     timestamp: Date | null
+    leftDragonId: number | null
+    leftDragonHealth: number | null
+    rightDragonId: number | null
+    rightDragonHealth: number | null
     winnerId: number | null
-    winnerHealth: number | null
   }
 
   export type BattleMaxAggregateOutputType = {
     id: number | null
     timestamp: Date | null
+    leftDragonId: number | null
+    leftDragonHealth: number | null
+    rightDragonId: number | null
+    rightDragonHealth: number | null
     winnerId: number | null
-    winnerHealth: number | null
   }
 
   export type BattleCountAggregateOutputType = {
     id: number
     timestamp: number
+    leftDragonId: number
+    leftDragonHealth: number
+    rightDragonId: number
+    rightDragonHealth: number
     winnerId: number
-    winnerHealth: number
     _all: number
   }
 
 
   export type BattleAvgAggregateInputType = {
     id?: true
+    leftDragonId?: true
+    leftDragonHealth?: true
+    rightDragonId?: true
+    rightDragonHealth?: true
     winnerId?: true
-    winnerHealth?: true
   }
 
   export type BattleSumAggregateInputType = {
     id?: true
+    leftDragonId?: true
+    leftDragonHealth?: true
+    rightDragonId?: true
+    rightDragonHealth?: true
     winnerId?: true
-    winnerHealth?: true
   }
 
   export type BattleMinAggregateInputType = {
     id?: true
     timestamp?: true
+    leftDragonId?: true
+    leftDragonHealth?: true
+    rightDragonId?: true
+    rightDragonHealth?: true
     winnerId?: true
-    winnerHealth?: true
   }
 
   export type BattleMaxAggregateInputType = {
     id?: true
     timestamp?: true
+    leftDragonId?: true
+    leftDragonHealth?: true
+    rightDragonId?: true
+    rightDragonHealth?: true
     winnerId?: true
-    winnerHealth?: true
   }
 
   export type BattleCountAggregateInputType = {
     id?: true
     timestamp?: true
+    leftDragonId?: true
+    leftDragonHealth?: true
+    rightDragonId?: true
+    rightDragonHealth?: true
     winnerId?: true
-    winnerHealth?: true
     _all?: true
   }
 
@@ -1129,8 +1168,11 @@ export namespace Prisma {
   export type BattleGroupByOutputType = {
     id: number
     timestamp: Date
+    leftDragonId: number
+    leftDragonHealth: number
+    rightDragonId: number
+    rightDragonHealth: number
     winnerId: number | null
-    winnerHealth: number | null
     _count: BattleCountAggregateOutputType | null
     _avg: BattleAvgAggregateOutputType | null
     _sum: BattleSumAggregateOutputType | null
@@ -1155,42 +1197,60 @@ export namespace Prisma {
   export type BattleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     timestamp?: boolean
+    leftDragonId?: boolean
+    leftDragonHealth?: boolean
+    rightDragonId?: boolean
+    rightDragonHealth?: boolean
     winnerId?: boolean
-    winnerHealth?: boolean
-    dragons?: boolean | Battle$dragonsArgs<ExtArgs>
-    _count?: boolean | BattleCountOutputTypeDefaultArgs<ExtArgs>
+    leftDragon?: boolean | DragonDefaultArgs<ExtArgs>
+    rightDragon?: boolean | DragonDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["battle"]>
 
   export type BattleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     timestamp?: boolean
+    leftDragonId?: boolean
+    leftDragonHealth?: boolean
+    rightDragonId?: boolean
+    rightDragonHealth?: boolean
     winnerId?: boolean
-    winnerHealth?: boolean
+    leftDragon?: boolean | DragonDefaultArgs<ExtArgs>
+    rightDragon?: boolean | DragonDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["battle"]>
 
   export type BattleSelectScalar = {
     id?: boolean
     timestamp?: boolean
+    leftDragonId?: boolean
+    leftDragonHealth?: boolean
+    rightDragonId?: boolean
+    rightDragonHealth?: boolean
     winnerId?: boolean
-    winnerHealth?: boolean
   }
 
   export type BattleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    dragons?: boolean | Battle$dragonsArgs<ExtArgs>
-    _count?: boolean | BattleCountOutputTypeDefaultArgs<ExtArgs>
+    leftDragon?: boolean | DragonDefaultArgs<ExtArgs>
+    rightDragon?: boolean | DragonDefaultArgs<ExtArgs>
   }
-  export type BattleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BattleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    leftDragon?: boolean | DragonDefaultArgs<ExtArgs>
+    rightDragon?: boolean | DragonDefaultArgs<ExtArgs>
+  }
 
   export type $BattlePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Battle"
     objects: {
-      dragons: Prisma.$DragonPayload<ExtArgs>[]
+      leftDragon: Prisma.$DragonPayload<ExtArgs>
+      rightDragon: Prisma.$DragonPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       timestamp: Date
+      leftDragonId: number
+      leftDragonHealth: number
+      rightDragonId: number
+      rightDragonHealth: number
       winnerId: number | null
-      winnerHealth: number | null
     }, ExtArgs["result"]["battle"]>
     composites: {}
   }
@@ -1555,7 +1615,8 @@ export namespace Prisma {
    */
   export interface Prisma__BattleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    dragons<T extends Battle$dragonsArgs<ExtArgs> = {}>(args?: Subset<T, Battle$dragonsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DragonPayload<ExtArgs>, T, "findMany"> | Null>
+    leftDragon<T extends DragonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DragonDefaultArgs<ExtArgs>>): Prisma__DragonClient<$Result.GetResult<Prisma.$DragonPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    rightDragon<T extends DragonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DragonDefaultArgs<ExtArgs>>): Prisma__DragonClient<$Result.GetResult<Prisma.$DragonPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1587,8 +1648,11 @@ export namespace Prisma {
   interface BattleFieldRefs {
     readonly id: FieldRef<"Battle", 'Int'>
     readonly timestamp: FieldRef<"Battle", 'DateTime'>
+    readonly leftDragonId: FieldRef<"Battle", 'Int'>
+    readonly leftDragonHealth: FieldRef<"Battle", 'Int'>
+    readonly rightDragonId: FieldRef<"Battle", 'Int'>
+    readonly rightDragonHealth: FieldRef<"Battle", 'Int'>
     readonly winnerId: FieldRef<"Battle", 'Int'>
-    readonly winnerHealth: FieldRef<"Battle", 'Int'>
   }
     
 
@@ -1808,6 +1872,10 @@ export namespace Prisma {
      * The data used to create many Battles.
      */
     data: BattleCreateManyInput | BattleCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BattleIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -1901,26 +1969,6 @@ export namespace Prisma {
   }
 
   /**
-   * Battle.dragons
-   */
-  export type Battle$dragonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Dragon
-     */
-    select?: DragonSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DragonInclude<ExtArgs> | null
-    where?: DragonWhereInput
-    orderBy?: DragonOrderByWithRelationInput | DragonOrderByWithRelationInput[]
-    cursor?: DragonWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: DragonScalarFieldEnum | DragonScalarFieldEnum[]
-  }
-
-  /**
    * Battle without action
    */
   export type BattleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1950,34 +1998,29 @@ export namespace Prisma {
   export type DragonAvgAggregateOutputType = {
     id: number | null
     strength: number | null
-    battleId: number | null
   }
 
   export type DragonSumAggregateOutputType = {
     id: number | null
     strength: number | null
-    battleId: number | null
   }
 
   export type DragonMinAggregateOutputType = {
     id: number | null
     name: string | null
     strength: number | null
-    battleId: number | null
   }
 
   export type DragonMaxAggregateOutputType = {
     id: number | null
     name: string | null
     strength: number | null
-    battleId: number | null
   }
 
   export type DragonCountAggregateOutputType = {
     id: number
     name: number
     strength: number
-    battleId: number
     _all: number
   }
 
@@ -1985,34 +2028,29 @@ export namespace Prisma {
   export type DragonAvgAggregateInputType = {
     id?: true
     strength?: true
-    battleId?: true
   }
 
   export type DragonSumAggregateInputType = {
     id?: true
     strength?: true
-    battleId?: true
   }
 
   export type DragonMinAggregateInputType = {
     id?: true
     name?: true
     strength?: true
-    battleId?: true
   }
 
   export type DragonMaxAggregateInputType = {
     id?: true
     name?: true
     strength?: true
-    battleId?: true
   }
 
   export type DragonCountAggregateInputType = {
     id?: true
     name?: true
     strength?: true
-    battleId?: true
     _all?: true
   }
 
@@ -2106,7 +2144,6 @@ export namespace Prisma {
     id: number
     name: string
     strength: number
-    battleId: number | null
     _count: DragonCountAggregateOutputType | null
     _avg: DragonAvgAggregateOutputType | null
     _sum: DragonSumAggregateOutputType | null
@@ -2132,42 +2169,40 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     strength?: boolean
-    battleId?: boolean
-    Battle?: boolean | Dragon$BattleArgs<ExtArgs>
+    LeftBattle?: boolean | Dragon$LeftBattleArgs<ExtArgs>
+    RightBattle?: boolean | Dragon$RightBattleArgs<ExtArgs>
+    _count?: boolean | DragonCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["dragon"]>
 
   export type DragonSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     strength?: boolean
-    battleId?: boolean
-    Battle?: boolean | Dragon$BattleArgs<ExtArgs>
   }, ExtArgs["result"]["dragon"]>
 
   export type DragonSelectScalar = {
     id?: boolean
     name?: boolean
     strength?: boolean
-    battleId?: boolean
   }
 
   export type DragonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Battle?: boolean | Dragon$BattleArgs<ExtArgs>
+    LeftBattle?: boolean | Dragon$LeftBattleArgs<ExtArgs>
+    RightBattle?: boolean | Dragon$RightBattleArgs<ExtArgs>
+    _count?: boolean | DragonCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type DragonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Battle?: boolean | Dragon$BattleArgs<ExtArgs>
-  }
+  export type DragonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $DragonPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Dragon"
     objects: {
-      Battle: Prisma.$BattlePayload<ExtArgs> | null
+      LeftBattle: Prisma.$BattlePayload<ExtArgs>[]
+      RightBattle: Prisma.$BattlePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
       strength: number
-      battleId: number | null
     }, ExtArgs["result"]["dragon"]>
     composites: {}
   }
@@ -2532,7 +2567,8 @@ export namespace Prisma {
    */
   export interface Prisma__DragonClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    Battle<T extends Dragon$BattleArgs<ExtArgs> = {}>(args?: Subset<T, Dragon$BattleArgs<ExtArgs>>): Prisma__BattleClient<$Result.GetResult<Prisma.$BattlePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    LeftBattle<T extends Dragon$LeftBattleArgs<ExtArgs> = {}>(args?: Subset<T, Dragon$LeftBattleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BattlePayload<ExtArgs>, T, "findMany"> | Null>
+    RightBattle<T extends Dragon$RightBattleArgs<ExtArgs> = {}>(args?: Subset<T, Dragon$RightBattleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BattlePayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2565,7 +2601,6 @@ export namespace Prisma {
     readonly id: FieldRef<"Dragon", 'Int'>
     readonly name: FieldRef<"Dragon", 'String'>
     readonly strength: FieldRef<"Dragon", 'Int'>
-    readonly battleId: FieldRef<"Dragon", 'Int'>
   }
     
 
@@ -2785,10 +2820,6 @@ export namespace Prisma {
      * The data used to create many Dragons.
      */
     data: DragonCreateManyInput | DragonCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DragonIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2882,9 +2913,9 @@ export namespace Prisma {
   }
 
   /**
-   * Dragon.Battle
+   * Dragon.LeftBattle
    */
-  export type Dragon$BattleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Dragon$LeftBattleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Battle
      */
@@ -2894,6 +2925,31 @@ export namespace Prisma {
      */
     include?: BattleInclude<ExtArgs> | null
     where?: BattleWhereInput
+    orderBy?: BattleOrderByWithRelationInput | BattleOrderByWithRelationInput[]
+    cursor?: BattleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BattleScalarFieldEnum | BattleScalarFieldEnum[]
+  }
+
+  /**
+   * Dragon.RightBattle
+   */
+  export type Dragon$RightBattleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Battle
+     */
+    select?: BattleSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BattleInclude<ExtArgs> | null
+    where?: BattleWhereInput
+    orderBy?: BattleOrderByWithRelationInput | BattleOrderByWithRelationInput[]
+    cursor?: BattleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BattleScalarFieldEnum | BattleScalarFieldEnum[]
   }
 
   /**
@@ -2925,8 +2981,11 @@ export namespace Prisma {
   export const BattleScalarFieldEnum: {
     id: 'id',
     timestamp: 'timestamp',
-    winnerId: 'winnerId',
-    winnerHealth: 'winnerHealth'
+    leftDragonId: 'leftDragonId',
+    leftDragonHealth: 'leftDragonHealth',
+    rightDragonId: 'rightDragonId',
+    rightDragonHealth: 'rightDragonHealth',
+    winnerId: 'winnerId'
   };
 
   export type BattleScalarFieldEnum = (typeof BattleScalarFieldEnum)[keyof typeof BattleScalarFieldEnum]
@@ -2935,8 +2994,7 @@ export namespace Prisma {
   export const DragonScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    strength: 'strength',
-    battleId: 'battleId'
+    strength: 'strength'
   };
 
   export type DragonScalarFieldEnum = (typeof DragonScalarFieldEnum)[keyof typeof DragonScalarFieldEnum]
@@ -3000,17 +3058,25 @@ export namespace Prisma {
     NOT?: BattleWhereInput | BattleWhereInput[]
     id?: IntFilter<"Battle"> | number
     timestamp?: DateTimeFilter<"Battle"> | Date | string
+    leftDragonId?: IntFilter<"Battle"> | number
+    leftDragonHealth?: IntFilter<"Battle"> | number
+    rightDragonId?: IntFilter<"Battle"> | number
+    rightDragonHealth?: IntFilter<"Battle"> | number
     winnerId?: IntNullableFilter<"Battle"> | number | null
-    winnerHealth?: IntNullableFilter<"Battle"> | number | null
-    dragons?: DragonListRelationFilter
+    leftDragon?: XOR<DragonRelationFilter, DragonWhereInput>
+    rightDragon?: XOR<DragonRelationFilter, DragonWhereInput>
   }
 
   export type BattleOrderByWithRelationInput = {
     id?: SortOrder
     timestamp?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrderInput | SortOrder
-    winnerHealth?: SortOrderInput | SortOrder
-    dragons?: DragonOrderByRelationAggregateInput
+    leftDragon?: DragonOrderByWithRelationInput
+    rightDragon?: DragonOrderByWithRelationInput
   }
 
   export type BattleWhereUniqueInput = Prisma.AtLeast<{
@@ -3019,16 +3085,23 @@ export namespace Prisma {
     OR?: BattleWhereInput[]
     NOT?: BattleWhereInput | BattleWhereInput[]
     timestamp?: DateTimeFilter<"Battle"> | Date | string
+    leftDragonId?: IntFilter<"Battle"> | number
+    leftDragonHealth?: IntFilter<"Battle"> | number
+    rightDragonId?: IntFilter<"Battle"> | number
+    rightDragonHealth?: IntFilter<"Battle"> | number
     winnerId?: IntNullableFilter<"Battle"> | number | null
-    winnerHealth?: IntNullableFilter<"Battle"> | number | null
-    dragons?: DragonListRelationFilter
+    leftDragon?: XOR<DragonRelationFilter, DragonWhereInput>
+    rightDragon?: XOR<DragonRelationFilter, DragonWhereInput>
   }, "id">
 
   export type BattleOrderByWithAggregationInput = {
     id?: SortOrder
     timestamp?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrderInput | SortOrder
-    winnerHealth?: SortOrderInput | SortOrder
     _count?: BattleCountOrderByAggregateInput
     _avg?: BattleAvgOrderByAggregateInput
     _max?: BattleMaxOrderByAggregateInput
@@ -3042,8 +3115,11 @@ export namespace Prisma {
     NOT?: BattleScalarWhereWithAggregatesInput | BattleScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Battle"> | number
     timestamp?: DateTimeWithAggregatesFilter<"Battle"> | Date | string
+    leftDragonId?: IntWithAggregatesFilter<"Battle"> | number
+    leftDragonHealth?: IntWithAggregatesFilter<"Battle"> | number
+    rightDragonId?: IntWithAggregatesFilter<"Battle"> | number
+    rightDragonHealth?: IntWithAggregatesFilter<"Battle"> | number
     winnerId?: IntNullableWithAggregatesFilter<"Battle"> | number | null
-    winnerHealth?: IntNullableWithAggregatesFilter<"Battle"> | number | null
   }
 
   export type DragonWhereInput = {
@@ -3053,16 +3129,16 @@ export namespace Prisma {
     id?: IntFilter<"Dragon"> | number
     name?: StringFilter<"Dragon"> | string
     strength?: IntFilter<"Dragon"> | number
-    battleId?: IntNullableFilter<"Dragon"> | number | null
-    Battle?: XOR<BattleNullableRelationFilter, BattleWhereInput> | null
+    LeftBattle?: BattleListRelationFilter
+    RightBattle?: BattleListRelationFilter
   }
 
   export type DragonOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrderInput | SortOrder
-    Battle?: BattleOrderByWithRelationInput
+    LeftBattle?: BattleOrderByRelationAggregateInput
+    RightBattle?: BattleOrderByRelationAggregateInput
   }
 
   export type DragonWhereUniqueInput = Prisma.AtLeast<{
@@ -3072,15 +3148,14 @@ export namespace Prisma {
     NOT?: DragonWhereInput | DragonWhereInput[]
     name?: StringFilter<"Dragon"> | string
     strength?: IntFilter<"Dragon"> | number
-    battleId?: IntNullableFilter<"Dragon"> | number | null
-    Battle?: XOR<BattleNullableRelationFilter, BattleWhereInput> | null
+    LeftBattle?: BattleListRelationFilter
+    RightBattle?: BattleListRelationFilter
   }, "id">
 
   export type DragonOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrderInput | SortOrder
     _count?: DragonCountOrderByAggregateInput
     _avg?: DragonAvgOrderByAggregateInput
     _max?: DragonMaxOrderByAggregateInput
@@ -3095,90 +3170,107 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Dragon"> | number
     name?: StringWithAggregatesFilter<"Dragon"> | string
     strength?: IntWithAggregatesFilter<"Dragon"> | number
-    battleId?: IntNullableWithAggregatesFilter<"Dragon"> | number | null
   }
 
   export type BattleCreateInput = {
     timestamp: Date | string
+    leftDragonHealth: number
+    rightDragonHealth: number
     winnerId?: number | null
-    winnerHealth?: number | null
-    dragons?: DragonCreateNestedManyWithoutBattleInput
+    leftDragon: DragonCreateNestedOneWithoutLeftBattleInput
+    rightDragon: DragonCreateNestedOneWithoutRightBattleInput
   }
 
   export type BattleUncheckedCreateInput = {
     id?: number
     timestamp: Date | string
+    leftDragonId: number
+    leftDragonHealth: number
+    rightDragonId: number
+    rightDragonHealth: number
     winnerId?: number | null
-    winnerHealth?: number | null
-    dragons?: DragonUncheckedCreateNestedManyWithoutBattleInput
   }
 
   export type BattleUpdateInput = {
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
-    winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
-    dragons?: DragonUpdateManyWithoutBattleNestedInput
+    leftDragon?: DragonUpdateOneRequiredWithoutLeftBattleNestedInput
+    rightDragon?: DragonUpdateOneRequiredWithoutRightBattleNestedInput
   }
 
   export type BattleUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonId?: IntFieldUpdateOperationsInput | number
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonId?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
-    winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
-    dragons?: DragonUncheckedUpdateManyWithoutBattleNestedInput
   }
 
   export type BattleCreateManyInput = {
     id?: number
     timestamp: Date | string
+    leftDragonId: number
+    leftDragonHealth: number
+    rightDragonId: number
+    rightDragonHealth: number
     winnerId?: number | null
-    winnerHealth?: number | null
   }
 
   export type BattleUpdateManyMutationInput = {
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
-    winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type BattleUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonId?: IntFieldUpdateOperationsInput | number
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonId?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
     winnerId?: NullableIntFieldUpdateOperationsInput | number | null
-    winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type DragonCreateInput = {
     name: string
     strength: number
-    Battle?: BattleCreateNestedOneWithoutDragonsInput
+    LeftBattle?: BattleCreateNestedManyWithoutLeftDragonInput
+    RightBattle?: BattleCreateNestedManyWithoutRightDragonInput
   }
 
   export type DragonUncheckedCreateInput = {
     id?: number
     name: string
     strength: number
-    battleId?: number | null
+    LeftBattle?: BattleUncheckedCreateNestedManyWithoutLeftDragonInput
+    RightBattle?: BattleUncheckedCreateNestedManyWithoutRightDragonInput
   }
 
   export type DragonUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     strength?: IntFieldUpdateOperationsInput | number
-    Battle?: BattleUpdateOneWithoutDragonsNestedInput
+    LeftBattle?: BattleUpdateManyWithoutLeftDragonNestedInput
+    RightBattle?: BattleUpdateManyWithoutRightDragonNestedInput
   }
 
   export type DragonUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     strength?: IntFieldUpdateOperationsInput | number
-    battleId?: NullableIntFieldUpdateOperationsInput | number | null
+    LeftBattle?: BattleUncheckedUpdateManyWithoutLeftDragonNestedInput
+    RightBattle?: BattleUncheckedUpdateManyWithoutRightDragonNestedInput
   }
 
   export type DragonCreateManyInput = {
     id?: number
     name: string
     strength: number
-    battleId?: number | null
   }
 
   export type DragonUpdateManyMutationInput = {
@@ -3190,7 +3282,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     strength?: IntFieldUpdateOperationsInput | number
-    battleId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3226,10 +3317,9 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type DragonListRelationFilter = {
-    every?: DragonWhereInput
-    some?: DragonWhereInput
-    none?: DragonWhereInput
+  export type DragonRelationFilter = {
+    is?: DragonWhereInput
+    isNot?: DragonWhereInput
   }
 
   export type SortOrderInput = {
@@ -3237,41 +3327,52 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type DragonOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type BattleCountOrderByAggregateInput = {
     id?: SortOrder
     timestamp?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrder
-    winnerHealth?: SortOrder
   }
 
   export type BattleAvgOrderByAggregateInput = {
     id?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrder
-    winnerHealth?: SortOrder
   }
 
   export type BattleMaxOrderByAggregateInput = {
     id?: SortOrder
     timestamp?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrder
-    winnerHealth?: SortOrder
   }
 
   export type BattleMinOrderByAggregateInput = {
     id?: SortOrder
     timestamp?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrder
-    winnerHealth?: SortOrder
   }
 
   export type BattleSumOrderByAggregateInput = {
     id?: SortOrder
+    leftDragonId?: SortOrder
+    leftDragonHealth?: SortOrder
+    rightDragonId?: SortOrder
+    rightDragonHealth?: SortOrder
     winnerId?: SortOrder
-    winnerHealth?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -3334,42 +3435,42 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type BattleNullableRelationFilter = {
-    is?: BattleWhereInput | null
-    isNot?: BattleWhereInput | null
+  export type BattleListRelationFilter = {
+    every?: BattleWhereInput
+    some?: BattleWhereInput
+    none?: BattleWhereInput
+  }
+
+  export type BattleOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type DragonCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrder
   }
 
   export type DragonAvgOrderByAggregateInput = {
     id?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrder
   }
 
   export type DragonMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrder
   }
 
   export type DragonMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrder
   }
 
   export type DragonSumOrderByAggregateInput = {
     id?: SortOrder
     strength?: SortOrder
-    battleId?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3389,44 +3490,20 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type DragonCreateNestedManyWithoutBattleInput = {
-    create?: XOR<DragonCreateWithoutBattleInput, DragonUncheckedCreateWithoutBattleInput> | DragonCreateWithoutBattleInput[] | DragonUncheckedCreateWithoutBattleInput[]
-    connectOrCreate?: DragonCreateOrConnectWithoutBattleInput | DragonCreateOrConnectWithoutBattleInput[]
-    createMany?: DragonCreateManyBattleInputEnvelope
-    connect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
+  export type DragonCreateNestedOneWithoutLeftBattleInput = {
+    create?: XOR<DragonCreateWithoutLeftBattleInput, DragonUncheckedCreateWithoutLeftBattleInput>
+    connectOrCreate?: DragonCreateOrConnectWithoutLeftBattleInput
+    connect?: DragonWhereUniqueInput
   }
 
-  export type DragonUncheckedCreateNestedManyWithoutBattleInput = {
-    create?: XOR<DragonCreateWithoutBattleInput, DragonUncheckedCreateWithoutBattleInput> | DragonCreateWithoutBattleInput[] | DragonUncheckedCreateWithoutBattleInput[]
-    connectOrCreate?: DragonCreateOrConnectWithoutBattleInput | DragonCreateOrConnectWithoutBattleInput[]
-    createMany?: DragonCreateManyBattleInputEnvelope
-    connect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
+  export type DragonCreateNestedOneWithoutRightBattleInput = {
+    create?: XOR<DragonCreateWithoutRightBattleInput, DragonUncheckedCreateWithoutRightBattleInput>
+    connectOrCreate?: DragonCreateOrConnectWithoutRightBattleInput
+    connect?: DragonWhereUniqueInput
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type DragonUpdateManyWithoutBattleNestedInput = {
-    create?: XOR<DragonCreateWithoutBattleInput, DragonUncheckedCreateWithoutBattleInput> | DragonCreateWithoutBattleInput[] | DragonUncheckedCreateWithoutBattleInput[]
-    connectOrCreate?: DragonCreateOrConnectWithoutBattleInput | DragonCreateOrConnectWithoutBattleInput[]
-    upsert?: DragonUpsertWithWhereUniqueWithoutBattleInput | DragonUpsertWithWhereUniqueWithoutBattleInput[]
-    createMany?: DragonCreateManyBattleInputEnvelope
-    set?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    disconnect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    delete?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    connect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    update?: DragonUpdateWithWhereUniqueWithoutBattleInput | DragonUpdateWithWhereUniqueWithoutBattleInput[]
-    updateMany?: DragonUpdateManyWithWhereWithoutBattleInput | DragonUpdateManyWithWhereWithoutBattleInput[]
-    deleteMany?: DragonScalarWhereInput | DragonScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -3437,38 +3514,116 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type DragonUncheckedUpdateManyWithoutBattleNestedInput = {
-    create?: XOR<DragonCreateWithoutBattleInput, DragonUncheckedCreateWithoutBattleInput> | DragonCreateWithoutBattleInput[] | DragonUncheckedCreateWithoutBattleInput[]
-    connectOrCreate?: DragonCreateOrConnectWithoutBattleInput | DragonCreateOrConnectWithoutBattleInput[]
-    upsert?: DragonUpsertWithWhereUniqueWithoutBattleInput | DragonUpsertWithWhereUniqueWithoutBattleInput[]
-    createMany?: DragonCreateManyBattleInputEnvelope
-    set?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    disconnect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    delete?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    connect?: DragonWhereUniqueInput | DragonWhereUniqueInput[]
-    update?: DragonUpdateWithWhereUniqueWithoutBattleInput | DragonUpdateWithWhereUniqueWithoutBattleInput[]
-    updateMany?: DragonUpdateManyWithWhereWithoutBattleInput | DragonUpdateManyWithWhereWithoutBattleInput[]
-    deleteMany?: DragonScalarWhereInput | DragonScalarWhereInput[]
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type BattleCreateNestedOneWithoutDragonsInput = {
-    create?: XOR<BattleCreateWithoutDragonsInput, BattleUncheckedCreateWithoutDragonsInput>
-    connectOrCreate?: BattleCreateOrConnectWithoutDragonsInput
-    connect?: BattleWhereUniqueInput
+  export type DragonUpdateOneRequiredWithoutLeftBattleNestedInput = {
+    create?: XOR<DragonCreateWithoutLeftBattleInput, DragonUncheckedCreateWithoutLeftBattleInput>
+    connectOrCreate?: DragonCreateOrConnectWithoutLeftBattleInput
+    upsert?: DragonUpsertWithoutLeftBattleInput
+    connect?: DragonWhereUniqueInput
+    update?: XOR<XOR<DragonUpdateToOneWithWhereWithoutLeftBattleInput, DragonUpdateWithoutLeftBattleInput>, DragonUncheckedUpdateWithoutLeftBattleInput>
+  }
+
+  export type DragonUpdateOneRequiredWithoutRightBattleNestedInput = {
+    create?: XOR<DragonCreateWithoutRightBattleInput, DragonUncheckedCreateWithoutRightBattleInput>
+    connectOrCreate?: DragonCreateOrConnectWithoutRightBattleInput
+    upsert?: DragonUpsertWithoutRightBattleInput
+    connect?: DragonWhereUniqueInput
+    update?: XOR<XOR<DragonUpdateToOneWithWhereWithoutRightBattleInput, DragonUpdateWithoutRightBattleInput>, DragonUncheckedUpdateWithoutRightBattleInput>
+  }
+
+  export type BattleCreateNestedManyWithoutLeftDragonInput = {
+    create?: XOR<BattleCreateWithoutLeftDragonInput, BattleUncheckedCreateWithoutLeftDragonInput> | BattleCreateWithoutLeftDragonInput[] | BattleUncheckedCreateWithoutLeftDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutLeftDragonInput | BattleCreateOrConnectWithoutLeftDragonInput[]
+    createMany?: BattleCreateManyLeftDragonInputEnvelope
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+  }
+
+  export type BattleCreateNestedManyWithoutRightDragonInput = {
+    create?: XOR<BattleCreateWithoutRightDragonInput, BattleUncheckedCreateWithoutRightDragonInput> | BattleCreateWithoutRightDragonInput[] | BattleUncheckedCreateWithoutRightDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutRightDragonInput | BattleCreateOrConnectWithoutRightDragonInput[]
+    createMany?: BattleCreateManyRightDragonInputEnvelope
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+  }
+
+  export type BattleUncheckedCreateNestedManyWithoutLeftDragonInput = {
+    create?: XOR<BattleCreateWithoutLeftDragonInput, BattleUncheckedCreateWithoutLeftDragonInput> | BattleCreateWithoutLeftDragonInput[] | BattleUncheckedCreateWithoutLeftDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutLeftDragonInput | BattleCreateOrConnectWithoutLeftDragonInput[]
+    createMany?: BattleCreateManyLeftDragonInputEnvelope
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+  }
+
+  export type BattleUncheckedCreateNestedManyWithoutRightDragonInput = {
+    create?: XOR<BattleCreateWithoutRightDragonInput, BattleUncheckedCreateWithoutRightDragonInput> | BattleCreateWithoutRightDragonInput[] | BattleUncheckedCreateWithoutRightDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutRightDragonInput | BattleCreateOrConnectWithoutRightDragonInput[]
+    createMany?: BattleCreateManyRightDragonInputEnvelope
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type BattleUpdateOneWithoutDragonsNestedInput = {
-    create?: XOR<BattleCreateWithoutDragonsInput, BattleUncheckedCreateWithoutDragonsInput>
-    connectOrCreate?: BattleCreateOrConnectWithoutDragonsInput
-    upsert?: BattleUpsertWithoutDragonsInput
-    disconnect?: BattleWhereInput | boolean
-    delete?: BattleWhereInput | boolean
-    connect?: BattleWhereUniqueInput
-    update?: XOR<XOR<BattleUpdateToOneWithWhereWithoutDragonsInput, BattleUpdateWithoutDragonsInput>, BattleUncheckedUpdateWithoutDragonsInput>
+  export type BattleUpdateManyWithoutLeftDragonNestedInput = {
+    create?: XOR<BattleCreateWithoutLeftDragonInput, BattleUncheckedCreateWithoutLeftDragonInput> | BattleCreateWithoutLeftDragonInput[] | BattleUncheckedCreateWithoutLeftDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutLeftDragonInput | BattleCreateOrConnectWithoutLeftDragonInput[]
+    upsert?: BattleUpsertWithWhereUniqueWithoutLeftDragonInput | BattleUpsertWithWhereUniqueWithoutLeftDragonInput[]
+    createMany?: BattleCreateManyLeftDragonInputEnvelope
+    set?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    disconnect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    delete?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    update?: BattleUpdateWithWhereUniqueWithoutLeftDragonInput | BattleUpdateWithWhereUniqueWithoutLeftDragonInput[]
+    updateMany?: BattleUpdateManyWithWhereWithoutLeftDragonInput | BattleUpdateManyWithWhereWithoutLeftDragonInput[]
+    deleteMany?: BattleScalarWhereInput | BattleScalarWhereInput[]
+  }
+
+  export type BattleUpdateManyWithoutRightDragonNestedInput = {
+    create?: XOR<BattleCreateWithoutRightDragonInput, BattleUncheckedCreateWithoutRightDragonInput> | BattleCreateWithoutRightDragonInput[] | BattleUncheckedCreateWithoutRightDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutRightDragonInput | BattleCreateOrConnectWithoutRightDragonInput[]
+    upsert?: BattleUpsertWithWhereUniqueWithoutRightDragonInput | BattleUpsertWithWhereUniqueWithoutRightDragonInput[]
+    createMany?: BattleCreateManyRightDragonInputEnvelope
+    set?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    disconnect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    delete?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    update?: BattleUpdateWithWhereUniqueWithoutRightDragonInput | BattleUpdateWithWhereUniqueWithoutRightDragonInput[]
+    updateMany?: BattleUpdateManyWithWhereWithoutRightDragonInput | BattleUpdateManyWithWhereWithoutRightDragonInput[]
+    deleteMany?: BattleScalarWhereInput | BattleScalarWhereInput[]
+  }
+
+  export type BattleUncheckedUpdateManyWithoutLeftDragonNestedInput = {
+    create?: XOR<BattleCreateWithoutLeftDragonInput, BattleUncheckedCreateWithoutLeftDragonInput> | BattleCreateWithoutLeftDragonInput[] | BattleUncheckedCreateWithoutLeftDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutLeftDragonInput | BattleCreateOrConnectWithoutLeftDragonInput[]
+    upsert?: BattleUpsertWithWhereUniqueWithoutLeftDragonInput | BattleUpsertWithWhereUniqueWithoutLeftDragonInput[]
+    createMany?: BattleCreateManyLeftDragonInputEnvelope
+    set?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    disconnect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    delete?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    update?: BattleUpdateWithWhereUniqueWithoutLeftDragonInput | BattleUpdateWithWhereUniqueWithoutLeftDragonInput[]
+    updateMany?: BattleUpdateManyWithWhereWithoutLeftDragonInput | BattleUpdateManyWithWhereWithoutLeftDragonInput[]
+    deleteMany?: BattleScalarWhereInput | BattleScalarWhereInput[]
+  }
+
+  export type BattleUncheckedUpdateManyWithoutRightDragonNestedInput = {
+    create?: XOR<BattleCreateWithoutRightDragonInput, BattleUncheckedCreateWithoutRightDragonInput> | BattleCreateWithoutRightDragonInput[] | BattleUncheckedCreateWithoutRightDragonInput[]
+    connectOrCreate?: BattleCreateOrConnectWithoutRightDragonInput | BattleCreateOrConnectWithoutRightDragonInput[]
+    upsert?: BattleUpsertWithWhereUniqueWithoutRightDragonInput | BattleUpsertWithWhereUniqueWithoutRightDragonInput[]
+    createMany?: BattleCreateManyRightDragonInputEnvelope
+    set?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    disconnect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    delete?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    connect?: BattleWhereUniqueInput | BattleWhereUniqueInput[]
+    update?: BattleUpdateWithWhereUniqueWithoutRightDragonInput | BattleUpdateWithWhereUniqueWithoutRightDragonInput[]
+    updateMany?: BattleUpdateManyWithWhereWithoutRightDragonInput | BattleUpdateManyWithWhereWithoutRightDragonInput[]
+    deleteMany?: BattleScalarWhereInput | BattleScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -3603,115 +3758,255 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type DragonCreateWithoutBattleInput = {
+  export type DragonCreateWithoutLeftBattleInput = {
     name: string
     strength: number
+    RightBattle?: BattleCreateNestedManyWithoutRightDragonInput
   }
 
-  export type DragonUncheckedCreateWithoutBattleInput = {
+  export type DragonUncheckedCreateWithoutLeftBattleInput = {
     id?: number
     name: string
     strength: number
+    RightBattle?: BattleUncheckedCreateNestedManyWithoutRightDragonInput
   }
 
-  export type DragonCreateOrConnectWithoutBattleInput = {
+  export type DragonCreateOrConnectWithoutLeftBattleInput = {
     where: DragonWhereUniqueInput
-    create: XOR<DragonCreateWithoutBattleInput, DragonUncheckedCreateWithoutBattleInput>
+    create: XOR<DragonCreateWithoutLeftBattleInput, DragonUncheckedCreateWithoutLeftBattleInput>
   }
 
-  export type DragonCreateManyBattleInputEnvelope = {
-    data: DragonCreateManyBattleInput | DragonCreateManyBattleInput[]
+  export type DragonCreateWithoutRightBattleInput = {
+    name: string
+    strength: number
+    LeftBattle?: BattleCreateNestedManyWithoutLeftDragonInput
   }
 
-  export type DragonUpsertWithWhereUniqueWithoutBattleInput = {
+  export type DragonUncheckedCreateWithoutRightBattleInput = {
+    id?: number
+    name: string
+    strength: number
+    LeftBattle?: BattleUncheckedCreateNestedManyWithoutLeftDragonInput
+  }
+
+  export type DragonCreateOrConnectWithoutRightBattleInput = {
     where: DragonWhereUniqueInput
-    update: XOR<DragonUpdateWithoutBattleInput, DragonUncheckedUpdateWithoutBattleInput>
-    create: XOR<DragonCreateWithoutBattleInput, DragonUncheckedCreateWithoutBattleInput>
+    create: XOR<DragonCreateWithoutRightBattleInput, DragonUncheckedCreateWithoutRightBattleInput>
   }
 
-  export type DragonUpdateWithWhereUniqueWithoutBattleInput = {
-    where: DragonWhereUniqueInput
-    data: XOR<DragonUpdateWithoutBattleInput, DragonUncheckedUpdateWithoutBattleInput>
+  export type DragonUpsertWithoutLeftBattleInput = {
+    update: XOR<DragonUpdateWithoutLeftBattleInput, DragonUncheckedUpdateWithoutLeftBattleInput>
+    create: XOR<DragonCreateWithoutLeftBattleInput, DragonUncheckedCreateWithoutLeftBattleInput>
+    where?: DragonWhereInput
   }
 
-  export type DragonUpdateManyWithWhereWithoutBattleInput = {
-    where: DragonScalarWhereInput
-    data: XOR<DragonUpdateManyMutationInput, DragonUncheckedUpdateManyWithoutBattleInput>
+  export type DragonUpdateToOneWithWhereWithoutLeftBattleInput = {
+    where?: DragonWhereInput
+    data: XOR<DragonUpdateWithoutLeftBattleInput, DragonUncheckedUpdateWithoutLeftBattleInput>
   }
 
-  export type DragonScalarWhereInput = {
-    AND?: DragonScalarWhereInput | DragonScalarWhereInput[]
-    OR?: DragonScalarWhereInput[]
-    NOT?: DragonScalarWhereInput | DragonScalarWhereInput[]
-    id?: IntFilter<"Dragon"> | number
-    name?: StringFilter<"Dragon"> | string
-    strength?: IntFilter<"Dragon"> | number
-    battleId?: IntNullableFilter<"Dragon"> | number | null
+  export type DragonUpdateWithoutLeftBattleInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    strength?: IntFieldUpdateOperationsInput | number
+    RightBattle?: BattleUpdateManyWithoutRightDragonNestedInput
   }
 
-  export type BattleCreateWithoutDragonsInput = {
+  export type DragonUncheckedUpdateWithoutLeftBattleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    strength?: IntFieldUpdateOperationsInput | number
+    RightBattle?: BattleUncheckedUpdateManyWithoutRightDragonNestedInput
+  }
+
+  export type DragonUpsertWithoutRightBattleInput = {
+    update: XOR<DragonUpdateWithoutRightBattleInput, DragonUncheckedUpdateWithoutRightBattleInput>
+    create: XOR<DragonCreateWithoutRightBattleInput, DragonUncheckedCreateWithoutRightBattleInput>
+    where?: DragonWhereInput
+  }
+
+  export type DragonUpdateToOneWithWhereWithoutRightBattleInput = {
+    where?: DragonWhereInput
+    data: XOR<DragonUpdateWithoutRightBattleInput, DragonUncheckedUpdateWithoutRightBattleInput>
+  }
+
+  export type DragonUpdateWithoutRightBattleInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    strength?: IntFieldUpdateOperationsInput | number
+    LeftBattle?: BattleUpdateManyWithoutLeftDragonNestedInput
+  }
+
+  export type DragonUncheckedUpdateWithoutRightBattleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    strength?: IntFieldUpdateOperationsInput | number
+    LeftBattle?: BattleUncheckedUpdateManyWithoutLeftDragonNestedInput
+  }
+
+  export type BattleCreateWithoutLeftDragonInput = {
     timestamp: Date | string
+    leftDragonHealth: number
+    rightDragonHealth: number
     winnerId?: number | null
-    winnerHealth?: number | null
+    rightDragon: DragonCreateNestedOneWithoutRightBattleInput
   }
 
-  export type BattleUncheckedCreateWithoutDragonsInput = {
+  export type BattleUncheckedCreateWithoutLeftDragonInput = {
     id?: number
     timestamp: Date | string
+    leftDragonHealth: number
+    rightDragonId: number
+    rightDragonHealth: number
     winnerId?: number | null
-    winnerHealth?: number | null
   }
 
-  export type BattleCreateOrConnectWithoutDragonsInput = {
+  export type BattleCreateOrConnectWithoutLeftDragonInput = {
     where: BattleWhereUniqueInput
-    create: XOR<BattleCreateWithoutDragonsInput, BattleUncheckedCreateWithoutDragonsInput>
+    create: XOR<BattleCreateWithoutLeftDragonInput, BattleUncheckedCreateWithoutLeftDragonInput>
   }
 
-  export type BattleUpsertWithoutDragonsInput = {
-    update: XOR<BattleUpdateWithoutDragonsInput, BattleUncheckedUpdateWithoutDragonsInput>
-    create: XOR<BattleCreateWithoutDragonsInput, BattleUncheckedCreateWithoutDragonsInput>
-    where?: BattleWhereInput
+  export type BattleCreateManyLeftDragonInputEnvelope = {
+    data: BattleCreateManyLeftDragonInput | BattleCreateManyLeftDragonInput[]
   }
 
-  export type BattleUpdateToOneWithWhereWithoutDragonsInput = {
-    where?: BattleWhereInput
-    data: XOR<BattleUpdateWithoutDragonsInput, BattleUncheckedUpdateWithoutDragonsInput>
+  export type BattleCreateWithoutRightDragonInput = {
+    timestamp: Date | string
+    leftDragonHealth: number
+    rightDragonHealth: number
+    winnerId?: number | null
+    leftDragon: DragonCreateNestedOneWithoutLeftBattleInput
   }
 
-  export type BattleUpdateWithoutDragonsInput = {
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
-    winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type BattleUncheckedUpdateWithoutDragonsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
-    winnerHealth?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type DragonCreateManyBattleInput = {
+  export type BattleUncheckedCreateWithoutRightDragonInput = {
     id?: number
-    name: string
-    strength: number
+    timestamp: Date | string
+    leftDragonId: number
+    leftDragonHealth: number
+    rightDragonHealth: number
+    winnerId?: number | null
   }
 
-  export type DragonUpdateWithoutBattleInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    strength?: IntFieldUpdateOperationsInput | number
+  export type BattleCreateOrConnectWithoutRightDragonInput = {
+    where: BattleWhereUniqueInput
+    create: XOR<BattleCreateWithoutRightDragonInput, BattleUncheckedCreateWithoutRightDragonInput>
   }
 
-  export type DragonUncheckedUpdateWithoutBattleInput = {
+  export type BattleCreateManyRightDragonInputEnvelope = {
+    data: BattleCreateManyRightDragonInput | BattleCreateManyRightDragonInput[]
+  }
+
+  export type BattleUpsertWithWhereUniqueWithoutLeftDragonInput = {
+    where: BattleWhereUniqueInput
+    update: XOR<BattleUpdateWithoutLeftDragonInput, BattleUncheckedUpdateWithoutLeftDragonInput>
+    create: XOR<BattleCreateWithoutLeftDragonInput, BattleUncheckedCreateWithoutLeftDragonInput>
+  }
+
+  export type BattleUpdateWithWhereUniqueWithoutLeftDragonInput = {
+    where: BattleWhereUniqueInput
+    data: XOR<BattleUpdateWithoutLeftDragonInput, BattleUncheckedUpdateWithoutLeftDragonInput>
+  }
+
+  export type BattleUpdateManyWithWhereWithoutLeftDragonInput = {
+    where: BattleScalarWhereInput
+    data: XOR<BattleUpdateManyMutationInput, BattleUncheckedUpdateManyWithoutLeftDragonInput>
+  }
+
+  export type BattleScalarWhereInput = {
+    AND?: BattleScalarWhereInput | BattleScalarWhereInput[]
+    OR?: BattleScalarWhereInput[]
+    NOT?: BattleScalarWhereInput | BattleScalarWhereInput[]
+    id?: IntFilter<"Battle"> | number
+    timestamp?: DateTimeFilter<"Battle"> | Date | string
+    leftDragonId?: IntFilter<"Battle"> | number
+    leftDragonHealth?: IntFilter<"Battle"> | number
+    rightDragonId?: IntFilter<"Battle"> | number
+    rightDragonHealth?: IntFilter<"Battle"> | number
+    winnerId?: IntNullableFilter<"Battle"> | number | null
+  }
+
+  export type BattleUpsertWithWhereUniqueWithoutRightDragonInput = {
+    where: BattleWhereUniqueInput
+    update: XOR<BattleUpdateWithoutRightDragonInput, BattleUncheckedUpdateWithoutRightDragonInput>
+    create: XOR<BattleCreateWithoutRightDragonInput, BattleUncheckedCreateWithoutRightDragonInput>
+  }
+
+  export type BattleUpdateWithWhereUniqueWithoutRightDragonInput = {
+    where: BattleWhereUniqueInput
+    data: XOR<BattleUpdateWithoutRightDragonInput, BattleUncheckedUpdateWithoutRightDragonInput>
+  }
+
+  export type BattleUpdateManyWithWhereWithoutRightDragonInput = {
+    where: BattleScalarWhereInput
+    data: XOR<BattleUpdateManyMutationInput, BattleUncheckedUpdateManyWithoutRightDragonInput>
+  }
+
+  export type BattleCreateManyLeftDragonInput = {
+    id?: number
+    timestamp: Date | string
+    leftDragonHealth: number
+    rightDragonId: number
+    rightDragonHealth: number
+    winnerId?: number | null
+  }
+
+  export type BattleCreateManyRightDragonInput = {
+    id?: number
+    timestamp: Date | string
+    leftDragonId: number
+    leftDragonHealth: number
+    rightDragonHealth: number
+    winnerId?: number | null
+  }
+
+  export type BattleUpdateWithoutLeftDragonInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
+    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
+    rightDragon?: DragonUpdateOneRequiredWithoutRightBattleNestedInput
+  }
+
+  export type BattleUncheckedUpdateWithoutLeftDragonInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    strength?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonId?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
+    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type DragonUncheckedUpdateManyWithoutBattleInput = {
+  export type BattleUncheckedUpdateManyWithoutLeftDragonInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    strength?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonId?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
+    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type BattleUpdateWithoutRightDragonInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
+    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
+    leftDragon?: DragonUpdateOneRequiredWithoutLeftBattleNestedInput
+  }
+
+  export type BattleUncheckedUpdateWithoutRightDragonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonId?: IntFieldUpdateOperationsInput | number
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
+    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type BattleUncheckedUpdateManyWithoutRightDragonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftDragonId?: IntFieldUpdateOperationsInput | number
+    leftDragonHealth?: IntFieldUpdateOperationsInput | number
+    rightDragonHealth?: IntFieldUpdateOperationsInput | number
+    winnerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 
@@ -3720,9 +4015,9 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use BattleCountOutputTypeDefaultArgs instead
+     * @deprecated Use DragonCountOutputTypeDefaultArgs instead
      */
-    export type BattleCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BattleCountOutputTypeDefaultArgs<ExtArgs>
+    export type DragonCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DragonCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use BattleDefaultArgs instead
      */

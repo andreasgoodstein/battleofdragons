@@ -1,10 +1,18 @@
 # spiiri challenge - battle of dragons
 
-My solution to the Spiiri tech challenge
+My solution to the Spiiri tech challenge.
+
+Implemented as React SPA with Fastify backend and a SQLite / Prisma database.
 
 ## running solution
 
-// TODO: Write instructions
+To run the solution execute the following instructions in separate terminals
+
+1. `cd database && npm ci && npm run build`
+2. `cd server && npm ci && npm start`
+3. `cd client && npm ci && npm start`
+
+The solution should now be available at `http://localhost:3000`
 
 ## challenge requirements
 
@@ -48,8 +56,10 @@ react, with nextjs and react-query
 
 ### backend
 
-fastify, with prisma
+fastify
 
 ### database
 
 sqlite, with prisma
+
+

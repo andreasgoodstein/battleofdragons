@@ -10,17 +10,21 @@ datasource db {
 }
 
 model Battle {
-  id           Int      @id @default(autoincrement())
-  dragons      Dragon[]
-  timestamp    DateTime
-  winnerId     Int?
-  winnerHealth Int?
+  id                Int      @id @default(autoincrement())
+  timestamp         DateTime
+  leftDragon        Dragon   @relation("LeftDragon", fields: [leftDragonId], references: [id])
+  leftDragonId      Int
+  leftDragonHealth  Int
+  rightDragon       Dragon   @relation("RightDragon", fields: [rightDragonId], references: [id])
+  rightDragonId     Int
+  rightDragonHealth Int
+  winnerId          Int?
 }
 
 model Dragon {
-  id       Int     @id @default(autoincrement())
-  name     String
-  strength Int
-  Battle   Battle? @relation(fields: [battleId], references: [id])
-  battleId Int?
+  id          Int      @id @default(autoincrement())
+  name        String
+  strength    Int
+  LeftBattle  Battle[] @relation("LeftDragon")
+  RightBattle Battle[] @relation("RightDragon")
 }
