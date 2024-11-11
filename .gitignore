@@ -5,8 +5,5 @@ node_modules
 build
 out
 
-# dev database
-dev.db
-
 # secrets
 .env

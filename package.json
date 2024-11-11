@@ -2,7 +2,7 @@
   "name": "spiirichallange",
   "description": "My solution to the Spiiri tech challenge Battle of Dragons",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:db": "cd database && npm run build && cd .."
   },
   "author": "Andreas Goodstein",
   "license": "UNLICENSED",
