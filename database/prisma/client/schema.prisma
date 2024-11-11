@@ -1,0 +1,25 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "client"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Battle {
+  id           Int      @id @default(autoincrement())
+  dragons      Dragon[]
+  winnerId     Int?
+  winnerHealth Int?
+}
+
+model Dragon {
+  id       Int     @id @default(autoincrement())
+  name     String
+  strength Int
+  Battle   Battle? @relation(fields: [battleId], references: [id])
+  battleId Int?
+}

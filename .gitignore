@@ -1,1 +1,12 @@
+# dependencies
 node_modules
+
+# build output
+build
+out
+
+# dev database
+dev.db
+
+# secrets
+.env
