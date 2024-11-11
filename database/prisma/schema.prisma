@@ -6,12 +6,13 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = "file:./dragons.db"
 }
 
 model Battle {
   id           Int      @id @default(autoincrement())
   dragons      Dragon[]
+  timestamp    DateTime
   winnerId     Int?
   winnerHealth Int?
 }

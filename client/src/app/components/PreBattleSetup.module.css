@@ -1,0 +1,5 @@
+.preBattleSetup {
+    display: grid;
+    gap: 16px;
+    grid-auto-flow: column;
+}
