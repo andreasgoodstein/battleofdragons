@@ -43,17 +43,21 @@ GET `allDragons` - returns all possible dragons
 POST `startBattle` - locks in dragon selection and starts battle
 
 // TODO: Not finished
+
 POST `cancelBattle` - discard battle session and unlock dragon selection
 
 // TODO: Not finished
+
 POST `fightRound` - calculate and subtract health from each dragon
 
 ### bonus endpoints
 
 // TODO: Not finished
+
 GET `getBattleHistory` - returns list of completed battles
 
 // TODO: Not finished
+
 GET `predictBattle` - calculates and returns battle outcome probability
 
 ## tech choices
