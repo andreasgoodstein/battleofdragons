@@ -7,8 +7,16 @@
 				"streetsidesoftware.code-spell-checker",
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
-				"Prisma.prisma"
+				"Prisma.prisma",
+				"rangav.vscode-thunder-client"
 			]
 		}
-	}
+	},
+	"containerEnv": {
+		"NEXT_TELEMETRY_DISABLED": "1"
+	},
+	"forwardPorts": [
+		3000,
+		4000
+	]
 }

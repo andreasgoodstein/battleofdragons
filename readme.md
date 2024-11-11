@@ -24,19 +24,19 @@ My solution to the Spiiri tech challenge
 
 Backend api needs the following endpoints
 
-`getAllDragons` - returns all possible dragons
+GET `allDragons` - returns all possible dragons
 
-`startBattle` - locks in dragon selection and starts battle
+POST `startBattle` - locks in dragon selection and starts battle
 
-`cancelBattle` - discard battle session and unlock dragon selection
+POST `cancelBattle` - discard battle session and unlock dragon selection
 
-`fightRound` - calculate and subtract health from each dragon
+POST `fightRound` - calculate and subtract health from each dragon
 
 ### bonus endpoints
 
-`getBattleHistory` - returns list of completed battles
+GET `getBattleHistory` - returns list of completed battles
 
-`predictBattle` - calculates and returns battle outcome probability
+GET `predictBattle` - calculates and returns battle outcome probability
 
 ## tech choices
 
