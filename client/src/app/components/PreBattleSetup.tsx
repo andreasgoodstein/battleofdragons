@@ -26,7 +26,8 @@ export const PreBattleSetup = () => {
             selectHandler={setLeftDragon}
             value={leftDragon?.id}
           />
-          <DragonsStats dragon={leftDragon} />
+
+          <DragonsStats dragon={leftDragon} health={battle?.leftDragonHealth} />
         </div>
 
         <div>
@@ -36,7 +37,11 @@ export const PreBattleSetup = () => {
             selectHandler={setRightDragon}
             value={rightDragon?.id}
           />
-          <DragonsStats dragon={rightDragon} />
+
+          <DragonsStats
+            dragon={rightDragon}
+            health={battle?.rightDragonHealth}
+          />
         </div>
       </div>
 

@@ -6,6 +6,5 @@ type BattleStore = {
 };
 
 export const useBattleStore = create<BattleStore>((set) => ({
-  battleId: undefined,
   setBattle: (battle?: Battle) => set(() => ({ battle })),
 }));

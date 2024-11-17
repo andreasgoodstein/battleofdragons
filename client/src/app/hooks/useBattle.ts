@@ -7,15 +7,14 @@ type StartBattleParams = {
   rightDragonId: number;
 };
 export const useStartBattle = () => {
-  const { setBattle: setBattleId } = useBattleStore();
+  const { setBattle } = useBattleStore();
 
   const { mutateAsync } = useMutation({
     mutationKey: ["startBattle"],
     mutationFn: ({ leftDragonId, rightDragonId }: StartBattleParams) =>
       startBattle(leftDragonId, rightDragonId),
     onSuccess: (data) => {
-      console.log("newBattle", data);
-      setBattleId(data);
+      setBattle(data);
     },
   });
 
