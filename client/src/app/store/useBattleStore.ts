@@ -6,5 +6,5 @@ type BattleStore = {
 };
 
 export const useBattleStore = create<BattleStore>((set) => ({
-  setBattle: (battle?: Battle) => set(() => ({ battle })),
+  setBattle: (battle?: Battle) => set({ battle }),
 }));
