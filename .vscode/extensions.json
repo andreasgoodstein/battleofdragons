@@ -4,6 +4,7 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "prisma.prisma",
-        "rangav.vscode-thunder-client"
+        "rangav.vscode-thunder-client",
+        "eamodio.gitlens"
     ]
 }
