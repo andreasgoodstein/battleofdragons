@@ -22,10 +22,6 @@ New endpoint, takes battleId as argument. Removes Battle from database (perhaps 
 
 ### optional
 
-> save battleId in frontend session
-
-Frontend could persist the battleId across sessions, and fetch an ongoing Battle from the backend (through a new endpoint) to resolve that.
-
 > display battle history
 
 Add new endpoint that returns a list of completed battles from the db (consider adding *pagination*). Create frontend component to display list (consider using an *infinite* scrolling list).  
@@ -37,6 +33,15 @@ Add new endpoint that returns a list of completed battles from the db (consider 
 > Use current battle state as starting conditions. Run **n** number of battles to completion (with **n** being sufficiently high; 1.000-100.000). Display outcome percentages.
 >
 > Disclaimer: Uses *simulated* history and not *real* history. However those should effectively be the same, making the substitution inconsequential. If the battle resolution mechanic were to change in the future, historic data would be more **incorrect** as a predictor.
+
+>> Analytical Probability (Math)
+>
+> There might be a way of using an analytical formula to calculate the probability in ~O(1) time. However I do not know enough math to do it.
+> Probably something in the direction of what is the probability that (d20 + str1) * n >= health2 before (d20 + str2) * n >= health1
+
+> save battleId in frontend session
+
+Frontend could persist the battleId across sessions, and fetch an ongoing Battle from the backend (through a new endpoint) to resolve that.
 
 ## refactoring
 
