@@ -1,4 +1,4 @@
-import { PrismaClient } from "../database.js";
+import { Battle, PrismaClient } from "../database.js";
 
 export const createBattle = (
   prisma: PrismaClient,
@@ -14,3 +14,6 @@ export const createBattle = (
       timestamp: new Date(),
     },
   });
+
+export const findBattle = (prisma: PrismaClient, id: Battle["id"]) =>
+  prisma.battle.findFirst({ where: { id } });
