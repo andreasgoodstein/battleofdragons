@@ -8,7 +8,8 @@
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
 				"Prisma.prisma",
-				"rangav.vscode-thunder-client"
+				"rangav.vscode-thunder-client",
+				"eamodio.gitlens"
 			]
 		}
 	},

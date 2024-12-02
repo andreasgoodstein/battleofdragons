@@ -37,4 +37,9 @@ export const setupRoutes = (
       reply.send(newBattle);
     }
   );
+
+  // fastify.post("/doBattleRound", async () => {
+  //   // get battleId from requestBody
+  //   await battleLogic.doBattleRound();
+  // });
 };

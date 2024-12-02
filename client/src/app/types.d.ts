@@ -1,7 +1,11 @@
 type Battle = {
   id: number;
-  dragons: Dragon[];
   timestamp: Date;
+  leftDragonId: number;
+  leftDragonHealth: number;
+  rightDragonId: number;
+  rightDragonHealth: number;
+  winnerId: number | null;
 };
 
 type Dragon = {
